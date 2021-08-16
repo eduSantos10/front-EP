@@ -1,0 +1,82 @@
+@import "../app.component.scss";
+
+.font {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.back-card {
+    background-color: $terceary;
+}
+
+.title-indicador {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3e1c5f;
+}
+
+.content-indicador {
+    font-weight: 600;
+    font-size: 14px;
+    color: $primary-l;
+}
+
+.icon-indicador {
+    color: #3e1c5f;
+    position: absolute;
+    left: 80%;
+    font-size: 40px;
+}
+
+.card-list {
+    overflow-y: auto;
+    max-height: 420px;
+    min-height: 420px;
+    background-color: $terceary;
+    height: 40%;
+    border-radius: 5px;
+}
+
+.list-title {
+    padding: 10px 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3e1c5f;
+}
+
+mat-list-item {
+    font-size: 14px !important;
+    height: 40px !important;
+}
+
+.title-table {
+    font-size: 18px;
+    color: #3e1c5f;
+    background-color: $terceary;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.demo-table {
+    width: 100%;
+}
+
+.mat-row .mat-cell {
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+    background-color: $terceary;
+    height: 40px !important;
+}
+
+.mat-row:hover .mat-cell {
+    background-color: transparent;
+}
+
+.demo-row-is-clicked {
+    font-weight: bold;
+}
+
+tr.mat-row,
+tr.mat-footer-row {
+    height: 40px !important;
+}

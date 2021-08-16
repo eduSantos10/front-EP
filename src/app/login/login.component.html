@@ -1,0 +1,22 @@
+<div class="body container-fluid">
+    <div class="center mat-elevation-z1">
+        <h1>Easy Parking</h1>
+        <form [formGroup]="form" class="row">
+
+            <mat-form-field class="py-2 mat-form-field" appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="E-mail" formControlName="email" type="email">
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="pb-2 mat-form-field" appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput placeholder="Senha" formControlName="senha" [type]="typePassword" autocomplete="new-password">
+                <mat-icon matSuffix (click)="changeTypePassword()" *ngIf="!isPassword" style="cursor: pointer;">visibility_off</mat-icon>
+                <mat-icon matSuffix (click)="changeTypePassword()" *ngIf="isPassword" style="cursor: pointer;"> visibility</mat-icon>
+            </mat-form-field>
+
+            <input type="submit" value="Entrar" class="btn-login px-2" [routerLink]="['/dashboard']">
+        </form>
+    </div>
+</div>

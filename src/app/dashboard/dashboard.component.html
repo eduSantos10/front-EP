@@ -1,0 +1,109 @@
+<p class="font">
+  <mat-toolbar color="primary">
+    <mat-icon>menu</mat-icon>
+    <div class="px-4">Easy Parking</div>
+  </mat-toolbar>
+</p>
+
+<div class="container-fluid font">
+  <div class="row justify-content-around align-items-center">
+    <div class="col-lg-2 col-md-6 col-sm-12 m-0 p-0">
+      <mat-card class="back-card">
+        <mat-icon class="icon-indicador">person</mat-icon>
+        <span class="title-indicador">
+          Usuários
+        </span>
+        <br>
+        <span class="content-indicador">
+          1358
+        </span>
+      </mat-card>
+    </div>
+    <div class="col-lg-2 col-md-6 col-sm-12 m-0 p-0">
+      <mat-card class="back-card">
+        <mat-icon class="icon-indicador">drive_eta</mat-icon>
+        <span class="title-indicador">
+          Veículos
+        </span><br>
+        <span class="content-indicador">
+          369
+        </span>
+      </mat-card>
+    </div>
+    <div class="col-lg-2 col-md-6 col-sm-12 m-0 p-0">
+      <mat-card class="back-card">
+        <mat-icon class="icon-indicador">local_parking</mat-icon>
+        <span class="title-indicador">
+          Vagas Disponíveis
+        </span><br>
+        <span class="content-indicador">
+          369
+        </span>
+      </mat-card>
+    </div>
+    <div class="col-lg-2 col-md-6 col-sm-12 m-0 p-0">
+      <mat-card class="back-card">
+        <mat-icon class="icon-indicador">sticky_note_2</mat-icon>
+        <span class="title-indicador">
+          Ocorrencias/Mês
+        </span><br>
+        <span class="content-indicador">
+          12
+        </span>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid font pt-4">
+  <div class="row justify-content-around">
+
+    <div class="col-lg-5 col-md-12 card-list mat-elevation-z1">
+
+      <div class="list-title">
+        Pesquisa Rápida
+      </div>
+      <div class="mx-3">
+
+        <mat-form-field class="example-full-width" appearance="fill" class="col-12 py-2">
+          <mat-label>Pesquisa</mat-label>
+          <input type="text" placeholder="PLACA/R.A/RAMAL/CPF" matInput autocomplete="off">
+          <mat-hint>Somente números e letras</mat-hint>
+          <!-- [formControl]="myControl" -->
+        </mat-form-field>
+
+
+        <table mat-table [dataSource]="usuarios" matSort class="mat-elevation-z0 demo-table">
+          <ng-container *ngFor="let title of titleTable; let i = index;" [matColumnDef]="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="title-table"> {{titleFormated[i]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element[title]}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="titleTable"></tr>
+          <tr mat-row *matRowDef="let row; columns: titleTable;"></tr>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="col-lg-5 col-md-12 card-list mat-elevation-z1">
+
+      <div class="list-title">
+        Últimas Ocorrencias
+      </div>
+      <div class="mx-3">
+        <mat-list>
+          <mat-list-item *ngFor="let ocorrencia of ultimasOcorrencias">
+            <span>
+              {{ocorrencia.nome}} - {{ocorrencia.placa}}
+            </span>
+            <span style="position: absolute;left: 80%;">
+              {{ocorrencia.dia}}
+            </span>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+
+  </div>
+</div>
