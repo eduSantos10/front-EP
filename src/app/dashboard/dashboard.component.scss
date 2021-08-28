@@ -80,3 +80,27 @@ tr.mat-row,
 tr.mat-footer-row {
     height: 40px !important;
 }
+
+.btn-login {
+    width: 120px;
+    padding: 15px 10px;
+    border: 1px solid;
+    background: $primary;
+    border-radius: 25px;
+    font-size: 18px;
+    color: $terceary;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+}
+
+
+.btn-login:hover {
+    background-color: $primary-d;
+    transition: 0.5s;
+}
+
+.form .mat-form-field-wrapper{
+    padding-bottom: 0px !important;
+}

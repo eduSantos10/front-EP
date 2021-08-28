@@ -11,12 +11,16 @@
 
             <mat-form-field class="pb-2 mat-form-field" appearance="outline">
                 <mat-label>Senha</mat-label>
-                <input matInput placeholder="Senha" formControlName="senha" [type]="typePassword" autocomplete="new-password">
-                <mat-icon matSuffix (click)="changeTypePassword()" *ngIf="!isPassword" style="cursor: pointer;">visibility_off</mat-icon>
-                <mat-icon matSuffix (click)="changeTypePassword()" *ngIf="isPassword" style="cursor: pointer;"> visibility</mat-icon>
+                <input matInput placeholder="Senha" formControlName="senha" [type]="typePassword"
+                    autocomplete="new-password">
+                <mat-icon matSuffix (click)="changeTypePassword()" *ngIf="!isPassword" style="cursor: pointer;">
+                    visibility_off</mat-icon>
+                <mat-icon matSuffix (click)="changeTypePassword()" *ngIf="isPassword" style="cursor: pointer;">
+                    visibility</mat-icon>
             </mat-form-field>
-
-            <input type="submit" value="Entrar" class="btn-login px-2" [routerLink]="['/dashboard']">
+            <p style="color: red;" *ngIf="errorLogin"> E-mail ou senha incorretos</p>
+            <input type="submit" value="Entrar" class="btn-login px-2" (click)="login()">
+            <!-- [routerLink]="['/dashboard']"  -->
         </form>
     </div>
 </div>

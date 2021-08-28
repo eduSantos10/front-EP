@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,10 +12,22 @@ export class DashboardComponent implements OnInit {
 
   ultimasOcorrencias: any = []
   usuarios: any = []
-  titleTable: any = [ "nome", "carro", "placa", "cargo"]
-  titleFormated: any = [ "Nome", "Carro", "Placa", "Cargo"]
+  titleTable: any = ["nome", "carro", "placa", "cargo", 'acao']
+  titleFormated: any = ["Nome", "Carro", "Placa", "Cargo",'Ocorrencia']
+  formAluno;
+  constructor(
+    public dialog: MatDialog,
+    fb: FormBuilder,
 
-  constructor() { }
+  ) {
+    this.formAluno = fb.group({
+      'email': ['', Validators.compose([Validators.required, Validators.email])],
+      'telefone': ['', Validators.compose([Validators.required])],
+      'nome': ['', Validators.compose([Validators.required])],
+      'curso': ['', Validators.compose([Validators.required])],
+      'ra': ['', Validators.compose([Validators.required])]
+    });
+  }
 
   ngOnInit() {
 
@@ -52,32 +66,56 @@ export class DashboardComponent implements OnInit {
 
     this.usuarios = [
       {
-        nome : "Vinicios",
-        carro : "Corsa",
-        placa : "ASD-2356",
-        cargo : "Aluno"
+        nome: "Vinicios",
+        carro: "Corsa",
+        placa: "ASD-2356",
+        cargo: "Aluno",
+        acao: "mode_edit"
       },
       {
-        nome : "Marta",
-        carro : "HB-20",
-        placa : "ASD-2356",
-        cargo : "Servidor"
+        nome: "Marta",
+        carro: "HB-20",
+        placa: "ASD-2356",
+        cargo: "Servidor",
+        acao: "mode_edit"
       },
       {
-        nome : "Claudio",
-        carro : "Vectra",
-        placa : "ASD-5874",
-        cargo : "Visitante"
+        nome: "Claudio",
+        carro: "Vectra",
+        placa: "ASD-5874",
+        cargo: "Visitante",
+        acao: "mode_edit"
       },
       {
-        nome : "Ana",
-        carro : "Corola",
-        placa : "TRY-3456",
-        cargo : "Aluno"
+        nome: "Ana",
+        carro: "Corola",
+        placa: "TRY-3456",
+        cargo: "Aluno",
+        acao: "mode_edit"
       },
     ]
   }
 
 
+  addUser(component: any) {
+    const dialogRef = this.dialog.open(component, {
+      width: '70vw',
+      height: '60vh',
+    });
+  }
+
+  addCar(component: any) {
+    const dialogRef = this.dialog.open(component, {
+      width: '70vw',
+      height: '60vh',
+    });
+  }
+
+  addParking(component: any) {
+    const dialogRef = this.dialog.open(component, {
+      width: '70vw',
+      height: '60vh',
+    });
+  }
 
 }
